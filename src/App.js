@@ -1,15 +1,21 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About"
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { Header, MainContainer, CreateContainer } from "./components";
 
-function App() {
+export default function App() {
   return (
-    <>
-     <Navbar />
-     <Hero />
-     <About />
-    </>
+    <AnimatePresence>
+      <div className="w-screen h-auto flex flex-col bg-primary">
+        <Header />
+
+        <main className="mt-24 p-8 w-full">
+          <Routes>
+            <Route path="/*" element={<MainContainer />} />
+            <Route path="/createItem" element={<CreateContainer />} />
+          </Routes>
+        </main>
+      </div>
+    </AnimatePresence>
   );
 }
-
-export default App;
