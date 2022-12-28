@@ -2,10 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Header, MainContainer, CreateContainer } from "./components";
-import {initializeApp} from 'firebase/app'
-import {config} from "./config/config"
 
-initializeApp(config.firebaseConfig)
 
 export default function App() {
   return (
