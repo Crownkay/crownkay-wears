@@ -6,7 +6,7 @@ import { Header, MainContainer, CreateContainer } from "./components";
 
 export default function App() {
   return (
-    <AnimatePresence>
+    <AnimatePresence exitBeforeEnter>
       <div className="w-screen h-auto flex flex-col bg-primary">
         <Header />
 
