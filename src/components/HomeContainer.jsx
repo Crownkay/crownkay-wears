@@ -1,6 +1,6 @@
 import React from "react";
 import Bike from "../img/delivery.png";
-import HeroBg from "../img/heroBg.png";
+import heroBg from "../img/heroBg.png";
 import { heroData } from "../utils/data";
 
 const HomeContainer = () => {
@@ -41,27 +41,28 @@ const HomeContainer = () => {
       </div>
       <div className="py-2 flex-1 flex items-center relative">
         <img
-          src={HeroBg}
-          className="ml-auto h-420 w-full lg:w-auto lg:h-650"
+          src={heroBg}
+          className=" ml-auto h-420 w-full lg:w-auto lg:h-650"
           alt="hero-bg"
         />
-        <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center px-32 py-4 gap-4 flex-wrap">
+
+        <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center lg:px-32  py-4 gap-4 flex-wrap">
           {heroData &&
-            heroData.map((items) => (
+            heroData.map((item) => (
               <div
-                key={items.id}
-                className="w-190 min-w-[190px] p-4 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center"
+                key={item.id}
+                className="lg:w-[160px] p-4 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center drop-shadow-lg"
               >
-                <img src={items.imgSrc} className="w-40 -mt-20" alt="i1" />
-                <p className="text-base font-semibold text-textColor">
-                  {items.name}
+                <img src={item.imgSrc} className="w-20 lg:w-40 -mt-10 lg:-mt-20" alt="i1" />
+                <p className="text-base lg:text-lg font-semibold text-textColor mt-2">
+                  {item.name}
                 </p>
-                <p className="text-sm text-lighttextGray font-semibold my-1">
-                  {items.descp}
+                <p className="text-[12px] text-lighttextGray font-semibold my-1 lg:my-1">
+                  {item.descp}
                 </p>
                 <p className="text-sm font-semibold text-headingColor">
                   <span className="text-xs text-red-600">$</span>
-                  {items.price}
+                  {item.price}
                 </p>
               </div>
             ))}

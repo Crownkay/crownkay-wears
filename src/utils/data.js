@@ -20,7 +20,7 @@ export const heroData = [
   },
   {
     id: 3,
-    name: "Chhicken Kebab",
+    name: "Chicken Kebab",
     descp: "Mixed Kebab",
     price: "8.25",
     imgSrc: C3,
