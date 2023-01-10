@@ -45,7 +45,7 @@ const Header = () => {
     });
   };
   return (
-    <header className="fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16">
+    <header className="bg-primary fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16">
       {/* desktop and tablet view */}
       <div className="hidden md:flex w-full h-full item-center justify-between">
         <Link to={"/"} className="flex items-center gap-1">
@@ -96,7 +96,7 @@ const Header = () => {
               >
                 {user && user.email === "adekolaadeniran84@gmail.com" && (
                   <Link to="/createItem">
-                    <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
+                    <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base" onClick={()=> setIsMenu(false)}>
                       New Item <MdAdd />
                     </p>
                   </Link>
@@ -143,23 +143,23 @@ const Header = () => {
               >
                 {user && user.email === "adekolaadeniran84@gmail.com" && (
                   <Link to="/createItem">
-                    <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
+                    <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base" onClick={()=> setIsMenu(false)}>
                       New Item <MdAdd />
                     </p>
                   </Link>
                 )}
 
                 <ul className="flex flex-col">
-                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100">
+                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100" onClick={()=> setIsMenu(false)}>
                     Home
                   </li>
-                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100">
+                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100" onClick={()=> setIsMenu(false)}>
                     Menu
                   </li>
-                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100">
+                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100" onClick={()=> setIsMenu(false)}>
                     About us
                   </li>
-                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100">
+                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100" onClick={()=> setIsMenu(false)}>
                     Services
                   </li>
                 </ul>
