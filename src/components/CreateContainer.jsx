@@ -42,6 +42,12 @@ const CreateContainer = () => {
             className="w-full h-full text-base outline-none border-none placeholder:text-gray-400 text-textColor bg-transparent font-semibold"
           />
         </div>
+
+        <div className="w-full" >
+          <select>
+            <option value="other"></option>
+          </select>
+        </div>
       </div>
     </div>
   );
