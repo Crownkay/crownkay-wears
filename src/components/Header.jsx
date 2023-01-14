@@ -57,18 +57,20 @@ const Header = () => {
             initial={{ opacity: 0, x: 200 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 200 }}
-            className="flex items-center gap-8"
+            className="flex items-center gap-8 "
           >
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Home
-            </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <Link to={"/"}>
+              <li className="relative text-base text-textColor hover:text-headingColor  hover:before:absolute before:rounded-lg before:content before:w-full before:h-1 before:-bottom-1 before:left-0 before:bg-gradient-to-tr from-orange-300 to-orange-600 transition-all ease-in-out duration-300 cursor-pointer">
+                Home
+              </li>
+            </Link>
+            <li className="relative text-base text-textColor hover:text-headingColor  hover:before:absolute before:rounded-lg before:content before:w-full before:h-1 before:-bottom-1 before:left-0 before:bg-gradient-to-tr from-orange-300 to-orange-600 transition-all ease-in-out duration-300 cursor-pointer">
               Menu
             </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="relative text-base text-textColor hover:text-headingColor  hover:before:absolute before:rounded-lg before:content before:w-full before:h-1 before:-bottom-1 before:left-0 before:bg-gradient-to-tr from-orange-300 to-orange-600 transition-all ease-in-out duration-300 cursor-pointer">
               About us
             </li>
-            <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="relative text-base text-textColor hover:text-headingColor  hover:before:absolute before:rounded-lg before:content before:w-full before:h-1 before:-bottom-1 before:left-0 before:bg-gradient-to-tr from-orange-300 to-orange-600 transition-all ease-in-out duration-300 cursor-pointer">
               Services
             </li>
           </motion.ul>
@@ -96,7 +98,10 @@ const Header = () => {
               >
                 {user && user.email === "adekolaadeniran84@gmail.com" && (
                   <Link to="/createItem">
-                    <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base" onClick={()=> setIsMenu(false)}>
+                    <p
+                      className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
+                      onClick={() => setIsMenu(false)}
+                    >
                       New Item <MdAdd />
                     </p>
                   </Link>
@@ -143,23 +148,38 @@ const Header = () => {
               >
                 {user && user.email === "adekolaadeniran84@gmail.com" && (
                   <Link to="/createItem">
-                    <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base" onClick={()=> setIsMenu(false)}>
+                    <p
+                      className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
+                      onClick={() => setIsMenu(false)}
+                    >
                       New Item <MdAdd />
                     </p>
                   </Link>
                 )}
 
                 <ul className="flex flex-col">
-                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100" onClick={()=> setIsMenu(false)}>
+                  <li
+                    className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100"
+                    onClick={() => setIsMenu(false)}
+                  >
                     Home
                   </li>
-                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100" onClick={()=> setIsMenu(false)}>
+                  <li
+                    className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100"
+                    onClick={() => setIsMenu(false)}
+                  >
                     Menu
                   </li>
-                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100" onClick={()=> setIsMenu(false)}>
+                  <li
+                    className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100"
+                    onClick={() => setIsMenu(false)}
+                  >
                     About us
                   </li>
-                  <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100" onClick={()=> setIsMenu(false)}>
+                  <li
+                    className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100"
+                    onClick={() => setIsMenu(false)}
+                  >
                     Services
                   </li>
                 </ul>
