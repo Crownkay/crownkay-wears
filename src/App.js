@@ -6,7 +6,7 @@ import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utils/firebaseFunctions";
 import { actionType } from "./context/reducer";
 
-export default function App() {
+const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
 
   const fetchData = async () => {
@@ -36,4 +36,6 @@ export default function App() {
       </div>
     </AnimatePresence>
   );
-}
+};
+
+export default App;
