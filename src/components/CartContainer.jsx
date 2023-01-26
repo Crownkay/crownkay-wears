@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { motion } from "framer-motion";
 import { RiRefreshFill } from "react-icons/ri";
@@ -7,15 +7,33 @@ import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 import EmptyCart from "../img/emptyCart.svg";
 import CartItems from "./CartItems";
+import { useState } from "react";
 
 const CartContainer = () => {
   const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
-
+  const [flag, setFlag] = useState(1);
+  const [tot, setTot] = useState(0);
   const showCart = () => {
     dispatch({
       type: actionType.SET_CART_SHOW,
       cartShow: !cartShow,
     });
+  };
+
+  useEffect(() => {
+    let totalPrice = cartItems.reduce(function (accumulator, item) {
+      return accumulator + item.qty * item.price;
+    }, 0);
+    setTot(totalPrice);
+    console.log(tot);
+  }, [tot, flag]);
+
+  const clearCart = () => {
+    dispatch({
+      type: actionType.SET_CARTITEMS,
+      cartItems: [],
+    });
+    localStorage.setItem("cartItems", JSON.stringify([]));
   };
 
   return (
@@ -34,6 +52,7 @@ const CartContainer = () => {
         <motion.p
           whileTap={{ scale: 0.75 }}
           className="flex items-center gap-2 p-1 px-2 my-2 bg-gray-100 rounded-md hover:shadow-md cursor-pointer text-textColor text-base"
+          onClick={clearCart}
         >
           Clear <RiRefreshFill />{" "}
         </motion.p>
@@ -43,9 +62,8 @@ const CartContainer = () => {
           <div className="w-full h-340 md:h-42 px-6 py-10 flex flex-col gap-3 overflow-y-scroll scrollbar-none ">
             {/* cart item */}
             {cartItems &&
-              cartItems.map((item) => (
-                <CartItems key={item.id} item={item} />
-              ))}
+              cartItems.map((item) => <CartItems key={item.id} item={item} setFlag={setFlag}
+              flag={flag} />)}
           </div>
           {/* cart total section */}
           <div className="w-full flex-1 bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly px-8 py-2">
@@ -62,27 +80,26 @@ const CartContainer = () => {
 
             <div className="w-full flex items-center justify-between">
               <p className="text-gray-400 text-lg">Total</p>
-              <p className="text-gray-400 text-lg">$3.0</p>
+              <p className="text-gray-400 text-lg">${tot + 2.5}</p>
             </div>
 
             {user ? (
               <motion.button
-              whileTap={{ scale: 0.8 }}
-              type="button"
-              className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-300 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
-            >
-              Check Out
-            </motion.button>
-            ):(
+                whileTap={{ scale: 0.8 }}
+                type="button"
+                className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-300 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+              >
+                Check Out
+              </motion.button>
+            ) : (
               <motion.button
-              whileTap={{ scale: 0.8 }}
-              type="button"
-              className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-300 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
-            >
-              Login to check Out
-            </motion.button>
+                whileTap={{ scale: 0.8 }}
+                type="button"
+                className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-300 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+              >
+                Login to check Out
+              </motion.button>
             )}
-            
           </div>
         </div>
       ) : (

@@ -5,48 +5,53 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { actionType } from "../context/reducer";
 import { useStateValue } from "../context/StateProvider";
+import { useEffect } from "react";
 let items = [];
 
 const CartItems = ({ item, setFlag, flag }) => {
-  const [{cartItems}, dispatch] = useStateValue()
+  const [{ cartItems }, dispatch] = useStateValue();
   const [qty, setQty] = useState(item.qty);
 
-  const cartDispatch = () =>{
-    localStorage.setItem("cartItems", JSON.stringify(items))
+  const cartDispatch = () => {
+    localStorage.setItem("cartItems", JSON.stringify(items));
     dispatch({
       type: actionType.SET_CARTITEMS,
-      CartItems: items
-    })
-  }
+      CartItems: items,
+    });
+  };
 
   const updateQty = (action, id) => {
-    if(action === "add"){
+    if (action === "add") {
       setQty(qty + 1);
       cartItems.map((item) => {
-if(item.id === id){
+        if (item.id === id) {
           item.qty += 1;
-          setFlag(flag +1)
+          setFlag(flag + 1);
         }
-      })
-      cartDispatch()
-    }else{
-      // initial state value is one so you need to check if I then remove it
-      if(qty === 1 ){
-        items = cartItems.filter(item=>item.id !== id)
-        setFlag(flag + 1)
-        cartDispatch()
-      }else {
+      });
+      cartDispatch();
+    } else {
+      // initial state value is one so you need to check if 1 then remove it
+      if (qty === 1) {
+        items = cartItems.filter((item) => item.id !== id);
+        setFlag(flag + 1);
+        cartDispatch();
+      } else {
         setQty(qty - 1);
-        cartItems.map(item => {
-          if(item.id === id){
-            item.qty -= 1
-            setFlag(flag +1)
+        cartItems.map((item) => {
+          if (item.id === id) {
+            item.qty -= 1;
+            setFlag(flag + 1);
           }
-        })
+        });
+        cartDispatch()
       }
     }
   };
 
+  useEffect(()=>{
+    items = cartItems;
+  },[qty, item, cartItems])
   return (
     <div
       key={item.id}
