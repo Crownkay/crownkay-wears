@@ -13,6 +13,7 @@ const CartContainer = () => {
   const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
   const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
+  
   const showCart = () => {
     dispatch({
       type: actionType.SET_CART_SHOW,
