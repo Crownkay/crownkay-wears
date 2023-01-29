@@ -55,7 +55,7 @@ const Header = () => {
   return (
     <header className="bg-primary fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16">
       {/* desktop and tablet view */}
-      <div className="hidden md:flex w-full h-full item-center justify-between">
+      <div className="hidden md:flex w-full h-full items-center justify-between">
         <Link to={"/"} className="flex items-center gap-1">
           <img src={logo} className="w-10 object-cover" alt="logo" />
           <p className="text-headingColor text-xl font-bold">Crownkay</p>
@@ -86,6 +86,8 @@ const Header = () => {
               </li>
             </Link>
           </motion.ul>
+        </div>
+        <div className="flex gap-4">
           <div
             className="relative flex items-center justify-center"
             onClick={showCart}
@@ -139,12 +141,12 @@ const Header = () => {
         </div>
       </div>
       {/* Mobile */}
-      <div className="flex item-center justify-between md:hidden w-full h-full">
+      <div className="flex items-center justify-between md:hidden w-full h-full">
         <Link to={"/"} className="flex items-center gap-1">
           <img src={logo} className="w-10 object-cover" alt="logo" />
           <p className="text-headingColor text-xl font-bold">Crownkay</p>
         </Link>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center gap-4">
           <div
             className="relative flex items-center justify-center"
             onClick={showCart}
@@ -171,7 +173,6 @@ const Header = () => {
             Sign in
           </motion.button>
           <div className="relative ml-5">
-
             {/* put hanbuger here */}
             {isMenu && (
               <motion.div
