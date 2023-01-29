@@ -73,17 +73,17 @@ const Header = () => {
               </li>
             </Link>
             <Link to={"/FoodMenu"}>
-            <li className="relative text-base text-textColor hover:text-headingColor  hover:before:absolute before:rounded-lg before:content before:w-full before:h-1 before:-bottom-1 before:left-0 before:bg-gradient-to-tr from-orange-300 to-orange-600 transition-all ease-in-out duration-300 cursor-pointer">
-              Menu
-            </li>
+              <li className="relative text-base text-textColor hover:text-headingColor  hover:before:absolute before:rounded-lg before:content before:w-full before:h-1 before:-bottom-1 before:left-0 before:bg-gradient-to-tr from-orange-300 to-orange-600 transition-all ease-in-out duration-300 cursor-pointer">
+                Menu
+              </li>
             </Link>
             <li className="relative text-base text-textColor hover:text-headingColor  hover:before:absolute before:rounded-lg before:content before:w-full before:h-1 before:-bottom-1 before:left-0 before:bg-gradient-to-tr from-orange-300 to-orange-600 transition-all ease-in-out duration-300 cursor-pointer">
               About us
             </li>
             <Link to={"/Blog"}>
-            <li className="relative text-base text-textColor hover:text-headingColor  hover:before:absolute before:rounded-lg before:content before:w-full before:h-1 before:-bottom-1 before:left-0 before:bg-gradient-to-tr from-orange-300 to-orange-600 transition-all ease-in-out duration-300 cursor-pointer">
-              Blog
-            </li>
+              <li className="relative text-base text-textColor hover:text-headingColor  hover:before:absolute before:rounded-lg before:content before:w-full before:h-1 before:-bottom-1 before:left-0 before:bg-gradient-to-tr from-orange-300 to-orange-600 transition-all ease-in-out duration-300 cursor-pointer">
+                Blog
+              </li>
             </Link>
           </motion.ul>
           <div
@@ -99,15 +99,17 @@ const Header = () => {
               </div>
             )}
           </div>
-
+          <motion.img
+            whileTap={{ scale: 0.6 }}
+            src={user ? user.photoURL : Avatar}
+            className="w-10 min-w-[40px] h-10 min-h-[40px] object-cover drop-shadow-xl cursor-pointer rounded-full"
+            alt="userprofile"
+          />
+          <button type="button" onClick={login}>
+            Sign in
+          </button>
           <div className="relative">
-            <motion.img
-              whileTap={{ scale: 0.6 }}
-              src={user ? user.photoURL : Avatar}
-              className="w-10 min-w-[40px] h-10 min-h-[40px] object-cover drop-shadow-xl cursor-pointer rounded-full"
-              alt="userprofile"
-              onClick={login}
-            />
+            {/* put hanbuger here */}
             {isMenu && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.6 }}
@@ -156,15 +158,21 @@ const Header = () => {
               </div>
             )}
           </div>
-
+          <img
+            src={user ? user.photoURL : Avatar}
+            className="w-10 min-w-[40px] h-10 min-h-[40px] object-cover drop-shadow-xl cursor-pointer rounded-full"
+            alt="userprofile"
+          />
+          <motion.button
+            whileTap={{ scale: 0.6 }}
+            type="button"
+            onClick={login}
+          >
+            Sign in
+          </motion.button>
           <div className="relative ml-5">
-            <motion.img
-              whileTap={{ scale: 0.6 }}
-              src={user ? user.photoURL : Avatar}
-              className="w-10 min-w-[40px] h-10 min-h-[40px] object-cover drop-shadow-xl cursor-pointer rounded-full"
-              alt="userprofile"
-              onClick={login}
-            />
+
+            {/* put hanbuger here */}
             {isMenu && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.6 }}
@@ -185,20 +193,20 @@ const Header = () => {
 
                 <ul className="flex flex-col">
                   <Link to="/">
-                  <li
-                    className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100"
-                    onClick={() => setIsMenu(false)}
-                  >
-                    Home
-                  </li>
+                    <li
+                      className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100"
+                      onClick={() => setIsMenu(false)}
+                    >
+                      Home
+                    </li>
                   </Link>
                   <Link to="/FoodMenu">
-                  <li
-                    className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100"
-                    onClick={() => setIsMenu(false)}
-                  >
-                    Menu
-                  </li>
+                    <li
+                      className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100"
+                      onClick={() => setIsMenu(false)}
+                    >
+                      Menu
+                    </li>
                   </Link>
                   <li
                     className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100"
@@ -207,12 +215,12 @@ const Header = () => {
                     About us
                   </li>
                   <Link to="/Blog">
-                  <li
-                    className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100"
-                    onClick={() => setIsMenu(false)}
-                  >
-                    Blog
-                  </li>
+                    <li
+                      className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer px-4 py-2 hover:bg-slate-100"
+                      onClick={() => setIsMenu(false)}
+                    >
+                      Blog
+                    </li>
                   </Link>
                 </ul>
 
