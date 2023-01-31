@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../firebase.config";
 
-import { MdAdd, MdLogout, MdShoppingBasket } from "react-icons/md";
+import { MdAdd, MdLogout, MdShoppingBasket,MdOutlineNotes } from "react-icons/md";
 import Avatar from "../img/avatar.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../context/StateProvider";
@@ -151,7 +151,7 @@ const Header = () => {
             className="relative flex items-center justify-center"
             onClick={showCart}
           >
-            <MdShoppingBasket className="text-textColor text-3xl cursor" />
+            <MdShoppingBasket className="text-textColor text-3xl cursor-pointer" />
             {cartItems && cartItems.length > 0 && (
               <div className="absolute -top-1 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex  items-center justify-center">
                 <p className="text-xs text-white font-semibold">
@@ -170,7 +170,7 @@ const Header = () => {
             type="button"
             onClick={login}
           >
-            Sign in
+            <MdOutlineNotes className="text-textColor text-3xl"/>
           </motion.button>
           <div className="relative ml-5">
             {/* put hanbuger here */}
