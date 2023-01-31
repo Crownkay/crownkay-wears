@@ -5,7 +5,13 @@ import { motion } from "framer-motion";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../firebase.config";
 
-import { MdAdd, MdLogout, MdShoppingBasket,MdOutlineNotes } from "react-icons/md";
+import {
+  MdAdd,
+  MdLogout,
+  MdShoppingBasket,
+  MdOutlineNotes,
+  MdArrowDropDown,
+} from "react-icons/md";
 import Avatar from "../img/avatar.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../context/StateProvider";
@@ -87,7 +93,7 @@ const Header = () => {
             </Link>
           </motion.ul>
         </div>
-        <div className="flex gap-4">
+        <div className="flex items-center justify-center gap-4">
           <div
             className="relative flex items-center justify-center"
             onClick={showCart}
@@ -107,9 +113,15 @@ const Header = () => {
             className="w-10 min-w-[40px] h-10 min-h-[40px] object-cover drop-shadow-xl cursor-pointer rounded-full"
             alt="userprofile"
           />
-          <button type="button" onClick={login}>
-            Sign in
-          </button>
+
+          <motion.button
+            whileTap={{ scale: 0.75 }}
+            type="button"
+            className="bg-gradient-to-br from-orange-300 to-orange-500 w-full md:w-auto px-3 py-2 rounded-lg hover:shadow-lg text-textColor"
+            onClick={login}
+          >
+            Sign In
+          </motion.button>
           <div className="relative">
             {/* put hanbuger here */}
             {isMenu && (
@@ -170,7 +182,7 @@ const Header = () => {
             type="button"
             onClick={login}
           >
-            <MdOutlineNotes className="text-textColor text-3xl"/>
+            <MdOutlineNotes className="text-textColor text-3xl" />
           </motion.button>
           <div className="relative ml-5">
             {/* put hanbuger here */}

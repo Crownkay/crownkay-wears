@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import Bike from "../img/delivery.png";
 import heroBg from "../img/heroBg.png";
 import { heroData } from "../utils/data";
+import { motion } from "framer-motion";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useStateValue } from "../context/StateProvider";
+import { actionType } from "../context/reducer";
+import { app } from "../firebase.config";
 
 const HomeContainer = () => {
+  const firebaseAuth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  const [{ user }, dispatch] = useStateValue();
+
+  const [isMenu, setIsMenu] = useState(false);
+
+  const login = async () => {
+    if (!user) {
+      const {
+        user: { refreshToken, providerData },
+      } = await signInWithPopup(firebaseAuth, provider);
+      dispatch({
+        type: actionType.SET_USER,
+        user: providerData[0],
+      });
+      localStorage.setItem("user", JSON.stringify(providerData[0]));
+    } else {
+      setIsMenu(!isMenu);
+    }
+  };
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full" id="home">
       <div className="py-2 flex-1 flex flex-col items-start justify-center gap-4 md:gap-6">
@@ -32,12 +58,24 @@ const HomeContainer = () => {
           molestias eius vitae praesentium minima illum eligendi cumque. Vel,
           nemo recusandae!
         </p>
-        <button
-          type="button"
-          className="bg-gradient-to-br from-orange-300 to-orange-500 w-full md:w-auto px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100"
-        >
-          Order Now
-        </button>
+        <div className="flex gap-3">
+          
+          <motion.button
+            whileTap={{ scale: 0.75 }}
+            type="button"
+            className="bg-gradient-to-br from-orange-300 to-orange-500 w-full md:w-auto px-3 py-2 rounded-lg hover:shadow-lg"
+          >
+            Order Now
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.75 }}
+            type="button"
+            className="bg-gradient-to-br from-orange-300 to-orange-500 w-full md:w-auto px-4 py-2 rounded-lg hover:shadow-lg"
+            onClick={login}
+          >
+            Sign In
+          </motion.button>
+        </div>
       </div>
       <div className="py-2 flex-1 flex items-center relative">
         <img
