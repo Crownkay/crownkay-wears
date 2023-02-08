@@ -95,7 +95,7 @@ const Header = () => {
         </div>
         <div className="flex items-center justify-center gap-4">
           <div
-            className="relative flex items-center justify-center"
+            className="relative flex items-center justify-center cursor-pointer"
             onClick={showCart}
           >
             <MdShoppingBasket className="text-textColor text-2xl cursor" />
