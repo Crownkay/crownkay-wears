@@ -112,15 +112,15 @@ const Header = () => {
             src={user ? user.photoURL : Avatar}
             className="w-10 min-w-[40px] h-10 min-h-[40px] object-cover drop-shadow-xl cursor-pointer rounded-full"
             alt="userprofile"
+           
           />
 
           <motion.button
             whileTap={{ scale: 0.75 }}
             type="button"
-            className="bg-gradient-to-br from-orange-300 to-orange-500 w-full md:w-auto px-3 py-2 rounded-lg hover:shadow-lg text-textColor"
-            onClick={login}
+             onClick={login}
           >
-            Sign In
+            <MdOutlineNotes className="text-textColor text-3xl" />
           </motion.button>
           <div className="relative">
             {/* put hanbuger here */}
@@ -185,7 +185,7 @@ const Header = () => {
             <MdOutlineNotes className="text-textColor text-3xl" />
           </motion.button>
           <div className="relative ml-5">
-            {/* put hanbuger here */}
+            {/* put hambuger here */}
             {isMenu && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.6 }}

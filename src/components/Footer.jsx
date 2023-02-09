@@ -31,9 +31,9 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <div className="w-full border-b border-gray-300 mt-5"></div>
+      
       <div className="flex flex-col gap-2 items-center mt-5">
-        <p>2023 Crownkay</p>
+        <p> ©2023 Crownkay</p>
         <div className="flex items-center gap-3">
           <MdFacebook className="text-3xl" />
           <MdFacebook className="text-3xl" />
